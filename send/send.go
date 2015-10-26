@@ -9,6 +9,6 @@ import (
 
 func main() {
 	text := strings.Join(os.Args[1:len(os.Args)], " ")
-	m := message.Prepare(text)
-	message.Send(m)
+	m := message.NewMessage(text)
+	m.Send()
 }
