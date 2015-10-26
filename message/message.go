@@ -13,6 +13,12 @@ type Message interface {
 	Send()
 }
 
+func NewMessage(content string) *localGzipMessage {
+	m := &localGzipMessage{}
+	m.Prepare(content)
+	return m
+}
+
 type localGzipMessage struct {
 	Content []byte
 }
