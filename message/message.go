@@ -26,6 +26,9 @@ func (this *localGzipMessage) Prepare(content string) {
 	if copyErr != nil {
 		panic(copyErr)
 	}
+	if err := compressor.Close(); err != nil {
+		panic(err)
+	}
 	this.Content = out.Bytes()
 
 	fmt.Printf("Prepared message of size %v (gzip size %v).\n", len(content), len(this.Content))
